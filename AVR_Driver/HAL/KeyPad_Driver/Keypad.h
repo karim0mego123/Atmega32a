@@ -11,9 +11,9 @@
 
 #include "DIO.h"
 
-#define KeyPAd_PORT_Data	PORTD
-#define Keypad_PORT_Dir		DDRD
-#define KeyPad_Pin			PIND
+#define KeyPAd_PORT_Data	PORTB
+#define Keypad_PORT_Dir		DDRB
+#define KeyPad_Pin			PINB
 
 #define R0	0
 #define R1	1

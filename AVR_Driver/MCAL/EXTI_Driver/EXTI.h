@@ -28,6 +28,7 @@ typedef enum{
 
 void EXTI_Enable(EXTI_Interrupt_t interrupt);
 void EXTI_Disable(EXTI_Interrupt_t interrupt);
+void EXI_SetCallBack(EXTI_Interrupt_t Interrupt,void(*LocalPtr)(void));
 void EXTI_TriggerEdge(EXTI_Interrupt_t interrupt , Trigger_Edge_t Edge);
 
 #endif /* EXTI_H_ */

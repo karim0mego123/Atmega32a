@@ -16,15 +16,18 @@ ES_t MCAL_SPI_Init()
 	
     #if SPI_MODE == MASTER_MODE
     {
+		MCAL_SPI_Set_Pins_Master() ;
        SPCR |= (1<<MSTR) ; 
         // MAX BaudRate
         SPCR |= (1<<SPR0);
-  //    SPCR &= ~(1<<SPR1);
+	    SPCR |= (1<<SPE) ; //  SPI Enable
+		SET_BIT(PORTB,4);
        Init_Status = NO_Error ; 
     }
     #elif SPI_MODE == SLAVE_MODE
     {
-        SPCR &=~ (1<<MSTR) ;
+	    SPCR |= (1<<SPE) ; //  SPI Enable
+		MCAL_SPI_Set_Pins_SLAVE();
         Init_Status = NO_Error ; 
     }
     #else
@@ -95,40 +98,34 @@ ES_t MCAL_SPI_Init()
     }
     #endif
 	
-    SPCR |= (1<<SPE) ; //  SPI Enable
     return Init_Status ;
 }
-uint8_t MCAL_SPI_Send_Data(uint8_t DataSend )
+uint8_t MCAL_SPI_MasterSend_Data(uint8_t DataSend  )
 {
+	CLEAR_BIT(PORTB,4);
 	SPDR = DataSend ; 
-	while(!(SPSR&(1<<SPIF)));
-	return SPDR ;
+	while( GET_BIT(SPSR,SPIF)==0);
+	return SPDR ; 
 }
-uint8_t MCAL_SPI_Recieve_Data(uint8_t DataSend )
+uint8_t MCAL_SPI_SlaveRecieve_Data(uint8_t DataSend )
 {
 	SPDR = DataSend ;
-	while(!(SPSR&(1<<SPIF)));
-	return SPDR ;
+	while( GET_BIT(SPSR,SPIF)==0);
+	return SPDR ; 
 }
 ES_t MCAL_SPI_TX_RX(uint8_t DataSend , uint8_t* DataRecieve)
 {
 	 ES_t Init_Status = NO_Error ;
 	SPDR = DataSend ;
-	while(!(SPSR&(1<<SPIF)));
+	while( (SPSR&&(1<<SPIF) )==0);
 	*DataRecieve = SPDR ;
 	return Init_Status ;
 }
 void MCAL_SPI_Set_Pins_Master(void)
 {
-	DIO_Write_Pin_Dir(PORT_B,SS,HIGH);
-	DIO_Write_Pin_Dir(PORT_B,MOSI,HIGH);
-	DIO_Write_Pin_Dir(PORT_B,MISO,LOW);	
-	DIO_Write_Pin_Dir(PORT_B,SCK,HIGH);
+	DDRB |= 0xB0 ; 
 }
 void MCAL_SPI_Set_Pins_SLAVE(void)
 {
-	DIO_Write_Pin_Dir(PORT_B,SS,LOW);
-	DIO_Write_Pin_Dir(PORT_B,MOSI,LOW);
-	DIO_Write_Pin_Dir(PORT_B,MISO,HIGH);
-	DIO_Write_Pin_Dir(PORT_B,SCK,LOW);
+	DDRB |= 0x40 ;
 }

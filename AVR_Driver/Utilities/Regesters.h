@@ -39,6 +39,17 @@
 #define DDRD	*(volatile uint8_t *)(0x31)
 #define PIND	*(volatile uint8_t *)(0x30)
 
+
+#define PIN0  0 
+#define	PIN1  1
+#define	PIN2  2
+#define	PIN3  3 
+#define	PIN4  4 
+#define	PIN5  5 
+#define	PIN6  6
+#define	PIN7  7
+
+
 /************************************************************************/
 /*							Timer_Regesters                             */
 /************************************************************************/
@@ -107,15 +118,7 @@
 #define INT1_vect		__vector_2
 #define INT2_vect		__vector_3
 
-#define TIMSK   *(volatile uint8_t *)(0x39)
-#define TOIE0   0
-#define OCIE0   1
-#define TOIE2   6
-#define OCIE2   7
-#define TOIE1   2
-#define OCIE1B  3
-#define OCIE1A  4
-#define TICIE1  5
+
 
 /************************************************************************/
 /*								USART		                             */
@@ -155,7 +158,7 @@
 #define UBRRL	*(volatile uint8_t *)(0x29)
 #define UBRRH	*(volatile uint8_t *)(0x40)
 
-#define MYUBRR(BAUD)	            ((unsigned int)((FSOC/Speed_Mode)/(16*BAUD)-1))
+#define MYUBRR(BAUD)	            ((unsigned int)((FSOC/Speed_Mode)/(16UL*BAUD)-1))
 
 /************************************************************************/
 /*							EXTI_Interrupt                              */

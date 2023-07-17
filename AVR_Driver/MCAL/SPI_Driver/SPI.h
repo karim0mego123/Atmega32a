@@ -18,8 +18,8 @@
 
 
 ES_t MCAL_SPI_Init();
-uint8_t MCAL_SPI_Send_Data(uint8_t DataSend  );
-uint8_t MCAL_SPI_Recieve_Data(uint8_t DataSend ); 
+uint8_t MCAL_SPI_MasterSend_Data(uint8_t DataSend  );
+uint8_t MCAL_SPI_SlaveRecieve_Data(uint8_t DataSend );
 ES_t MCAL_SPI_TX_RX(uint8_t Buffer , uint8_t* Buffer1);
 void MCAL_SPI_Set_Pins_Master(void);
 void MCAL_SPI_Set_Pins_SLAVE(void);

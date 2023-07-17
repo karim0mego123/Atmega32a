@@ -22,46 +22,46 @@ char KeyPAd_Scan()
 		CLEAR_BIT(KeyPAd_PORT_Data,(i+4));
 		for(j=0 ; j<4 ; j++)
 		{
-			if(!(PIND&(1<<ROWS[j])))
+			if(!(KeyPad_Pin&(1<<ROWS[j])))
 			{
-				while(!(PIND&(1<<ROWS[j])));
+				while(!(KeyPad_Pin&(1<<ROWS[j])));
 				switch(i)
 				{
 					case 0 :
-					switch(j)
-					{
-						case 0:Result='7';break;
-						case 1:Result='4';break;
-						case 2:Result='1';break;
-						case 3:Result='?';break;
-					}
+						switch(j)
+						{
+							case 0:Result='7';break;
+							case 1:Result='4';break;
+							case 2:Result='1';break;
+							case 3:Result='?';break;
+						}
 					break;
 					case 1:
-					switch(j)
-					{
-						case 0:Result='8';break;
-						case 1:Result='5';break;
-						case 2:Result='2';break;
-						case 3:Result='0';break;
-					}
+						switch(j)
+						{
+							case 0:Result='8';break;
+							case 1:Result='5';break;
+							case 2:Result='2';break;
+							case 3:Result='0';break;
+						}
 					break;
 					case 2 :
-					switch(j)
-					{
-						case 0:Result='9';break;
-						case 1:Result='6';break;
-						case 2:Result='3';break;
-						case 3:Result='=';break;
-					}
+						switch(j)
+						{
+							case 0:Result='9';break;
+							case 1:Result='6';break;
+							case 2:Result='3';break;
+							case 3:Result='=';break;
+						}
 					break;
 					case 3 :
-					switch(j)
-					{
-						case 0:Result='/';break;
-						case 1:Result='*';break;
-						case 2:Result='-';break;
-						case 3:Result='+';break;
-					}
+						switch(j)
+						{
+							case 0:Result='/';break;
+							case 1:Result='*';break;
+							case 2:Result='-';break;
+							case 3:Result='+';break;
+						}
 					break;
 				}
 				return Result ;

@@ -17,16 +17,16 @@
 #define MISO	GPIO_PIN_6
 #define SCK		GPIO_PIN_7
 
-#define SPDR	*((volatile uint8_t*)0x2F)
+#define SPDR	*(volatile uint8_t*)(0x2F)
 #define LSB        0 
 #define MSB        7 
 
-#define SPSR	*((volatile uint8_t*)0x2E)
+#define SPSR	*(volatile uint8_t*)(0x2E)
 #define SPI2X        0 
 #define WCOL         6 
 #define SPIF         7
 
-#define SPCR	*((volatile uint8_t*)0x2D)
+#define SPCR	*(volatile uint8_t*)(0x2D)
 #define SPR0        0 
 #define SPR1        1 
 #define CPHA        2 

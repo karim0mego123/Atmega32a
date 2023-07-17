@@ -20,8 +20,13 @@
 #define LCD_DATA			PORTA
 #define	LCD_DATA_DIR		DDRA
 
-#define LCD_CTRL			PORTB
-#define LCD_CTRL_DIR		DDRB
+#define LCD_CTRL			PORTA
+#define LCD_CTRL_DIR		DDRA
+
+#define PORT_LCD_A				PORT_A
+#define PORT_LCD_B				PORT_B
+#define PORT_LCD_C				PORT_C
+#define PORT_LCD_D				PORT_D
 
 #define RS_SWITCH	0
 #define RW_SWITCH	1
@@ -57,5 +62,6 @@ void LCD_Write_String( uint8_t* STRING , uint8_t ROW , uint8_t COL);
 void LCD_GO_TO_INDEX(uint8_t ROW , uint8_t COL);
 void LCD_Store_Customer_Char(uint8_t* pattern , uint8_t CGram_index );
 void LCD_Display_Customer_Char(uint8_t CGRAM_Index , uint8_t ROW , uint8_t Col ) ;
+void LCD_Write_Number(uint32_t Number);
 
 #endif /* LCD_H_ */

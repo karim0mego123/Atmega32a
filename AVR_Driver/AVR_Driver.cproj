@@ -119,6 +119,15 @@
       <Value>../MCAL/EXTI_Driver</Value>
       <Value>../MCAL/USART_Driver</Value>
       <Value>../MCAL/SPI_Driver</Value>
+      <Value>../MCAL/IIC_Driver</Value>
+      <Value>../MCAL/TIMER</Value>
+      <Value>../ADC_Driver</Value>
+      <Value>../MCAL/TIMER0</Value>
+      <Value>../MCAL/TIMER1</Value>
+      <Value>../HAL/DC_Motor</Value>
+      <Value>../MCAL/ADC_Driver</Value>
+      <Value>../HAL/Ultrasonic</Value>
+      <Value>../HAL/Stepper_Motor</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>
@@ -147,6 +156,18 @@
     <Compile Include="HAL\7 segment\7_SEG.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\DC_Motor\DC_Motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\DC_Motor\DC_Motor_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\DC_Motor\DC_Motor_CFG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\DC_Motor\DC_Motor_Priv.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\KeyPad_Driver\Keypad.c">
       <SubType>compile</SubType>
     </Compile>
@@ -159,7 +180,43 @@
     <Compile Include="HAL\LCD_Driver\LCD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Stepper_Motor\Stepper_Motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Stepper_Motor\Stepper_Motor_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Stepper_Motor\Stepper_Motor_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Stepper_Motor\Stepper_Motor_Priv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Ultrasonic\Ultrasonic_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Ultrasonic\Ultrasonic_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Ultrasonic\Ultrasonic_Priv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Ultrasonic\Ultrasonic_Prog.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC_Driver\ADC_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC_Driver\ADC_INT.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC_Driver\ADC_Privite.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC_Driver\ADC_Prog.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\DIO_Driver\DIO.c">
@@ -174,6 +231,18 @@
     <Compile Include="MCAL\EXTI_Driver\EXTI.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\IIC_Driver\IIC_Congig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\IIC_Driver\IIC_Int.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\IIC_Driver\IIC_Priv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\IIC_Driver\IIC_Prog.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\SPI_Driver\SPI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -184,6 +253,30 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\SPI_Driver\SPI_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\Timer0_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\Timer0_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\Timer0_Priv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER0\Timer0_Prog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\Timer1_Config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\Timer1_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\Timer1_Priv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\TIMER1\Timer1_Prog.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\USART_Driver\USART.c">
@@ -210,13 +303,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL" />
-    <Folder Include="HAL\LCD_Driver" />
     <Folder Include="HAL\KeyPad_Driver" />
     <Folder Include="HAL\7 segment" />
+    <Folder Include="HAL\DC_Motor" />
+    <Folder Include="HAL\LCD_Driver\" />
+    <Folder Include="HAL\Stepper_Motor" />
+    <Folder Include="HAL\Ultrasonic" />
     <Folder Include="MCAL" />
+    <Folder Include="MCAL\ADC_Driver\" />
     <Folder Include="MCAL\EXTI_Driver" />
     <Folder Include="MCAL\DIO_Driver" />
+    <Folder Include="MCAL\IIC_Driver" />
+    <Folder Include="MCAL\TIMER0" />
     <Folder Include="MCAL\SPI_Driver" />
+    <Folder Include="MCAL\TIMER1\" />
     <Folder Include="MCAL\USART_Driver" />
     <Folder Include="Utilities" />
   </ItemGroup>

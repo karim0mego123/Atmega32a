@@ -8,9 +8,9 @@
 
 
 
-Error_Status_t USART_Init()
+ES_t USART_Init()
 {
-	Error_Status_t Loc_Init_Status = NO_Error ;
+	ES_t Loc_Init_Status = NO_Error ;
 
 	#if Speed_Mode == Normal_Speed
 	UCSRA |=(1<<U2X) ; 
@@ -50,17 +50,17 @@ Error_Status_t USART_Init()
 	return Loc_Init_Status ; 
 }
 
-Error_Status_t USART_Send_Char(uint8_t Data )
+ES_t USART_Send_Char(uint8_t Data )
 {
-	Error_Status_t Loc_TX_Status = NO_Error ;
+	ES_t Loc_TX_Status = NO_Error ;
 		while(!(UCSRA&(1<<UDRE)) );
 		UDR = Data ; 
 	return Loc_TX_Status ; 
 }
-Error_Status_t USART_Recieve_Char( uint8_t* Data )
+ES_t USART_Recieve_Char( uint8_t* Data )
 {
-	Error_Status_t Loc_RX_Status = NO_Error ;
-	if(Data==NULLPTR)
+	ES_t Loc_RX_Status = NO_Error ;
+	if(Data==NULL)
 	{
 		Loc_RX_Status = Error ; 
 	}
@@ -71,10 +71,10 @@ Error_Status_t USART_Recieve_Char( uint8_t* Data )
 	}
 	return Loc_RX_Status ; 
 }
-Error_Status_t USAERT_Send_STRING(uint8_t* String)
+ES_t USAERT_Send_STRING(uint8_t* String)
 {
-	Error_Status_t Loc_TX_String_Status = NO_Error ;
-	if(String==NULLPTR)
+	ES_t Loc_TX_String_Status = NO_Error ;
+	if(String==NULL)
 	{
 		Loc_TX_String_Status = Error ; 
 	}
@@ -88,10 +88,10 @@ Error_Status_t USAERT_Send_STRING(uint8_t* String)
 	}
 	return Loc_TX_String_Status ; 
 }
-Error_Status_t USAERT_Recieve_STRING(uint8_t* String)
+ES_t USAERT_Recieve_STRING(uint8_t* String)
 {
-	Error_Status_t Loc_RX_STRING_Status = NO_Error ;
-	if(String==NULLPTR)
+	ES_t Loc_RX_STRING_Status = NO_Error ;
+	if(String==NULL)
 	{
 		Loc_RX_STRING_Status = Error ; 
 	}
